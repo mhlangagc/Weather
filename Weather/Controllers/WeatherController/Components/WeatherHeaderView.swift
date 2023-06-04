@@ -3,26 +3,28 @@ import UIKit
 
 final class WeatherHeaderView: BaseView {
     
+    static var height: CGFloat = 300
+    
     lazy var locationLabel: UILabel = {
         var label = UILabel()
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(36)
-        label.text = "Weather"
+        label.text = "Cape Town"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var logoImageView: UIImageView = {
+    lazy var weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.image = WeatherImages.logoImage
+        imageView.image = WeatherImages.partlyCloudyImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    lazy var temperaturLabel: UILabel = {
+    lazy var temperatureLabel: UILabel = {
         var label = UILabel()
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(72)
@@ -43,7 +45,7 @@ final class WeatherHeaderView: BaseView {
     }()
     
     lazy var temperatureLabelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [locationLabel, weatherConditionsLabel])
+        let stackView = UIStackView(arrangedSubviews: [locationLabel, weatherImageView, temperatureLabel, weatherConditionsLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
@@ -54,5 +56,17 @@ final class WeatherHeaderView: BaseView {
     
     override func setupUI() {
         super.setupUI()
+        addSubview(temperatureLabelStackView)
+        
+        temperatureLabelStackView.topAnchor.constraint(equalTo: topAnchor,
+                                                       constant: Layout.spacing0).isActive = true
+        temperatureLabelStackView.leftAnchor ->> leftAnchor
+        temperatureLabelStackView.rightAnchor ->> rightAnchor
+        
+        weatherConditionsLabel.height(Layout.spacing25)
+        
+        weatherImageView.height(Layout.spacing150)
+        weatherImageView.width(Layout.spacing150)
     }
+    
 }

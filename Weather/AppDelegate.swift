@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
         window.tintColor = Colour.darkBlue
-        window.rootViewController = UINavigationController(rootViewController: SplashViewController())
+        window.rootViewController = UINavigationController(rootViewController: WeatherViewController())
         return window
     }
 }
