@@ -14,8 +14,13 @@ struct Colour {
     
     private static let `defaultColor` = UIColor()
     
+    // MARK: Colour
+    static let primaryColor = hexToUIColor("E16B14")
     static let darkBlue  = hexToUIColor("154F9E")
     static let lightBlue = hexToUIColor("7BBAE7")
+    
+    // MARK: Black & White
+    static let white = UIColor.white
     
     // MARK: HexToUIColor
     static func hexToUIColor(_ hex: String) -> UIColor {

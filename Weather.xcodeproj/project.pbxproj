@@ -19,6 +19,20 @@
 		45C5226B2A2C9AD000664876 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5226A2A2C9AD000664876 /* Constraints.swift */; };
 		45C5226E2A2C9BC600664876 /* WeatherImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5226D2A2C9BC600664876 /* WeatherImages.swift */; };
 		45C522712A2C9CB500664876 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C522702A2C9CB500664876 /* Layout.swift */; };
+		45C522742A2CA1D800664876 /* WeatherStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C522732A2CA1D800664876 /* WeatherStrings.swift */; };
+		45C522772A2CA50100664876 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C522762A2CA50100664876 /* Font.swift */; };
+		45C522842A2CA7D900664876 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C522782A2CA7D900664876 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		45C522852A2CA7D900664876 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C522792A2CA7D900664876 /* SourceSansPro-Black.ttf */; };
+		45C522862A2CA7D900664876 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C5227A2A2CA7D900664876 /* SourceSansPro-ExtraLightItalic.ttf */; };
+		45C522872A2CA7D900664876 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C5227B2A2CA7D900664876 /* SourceSansPro-Regular.ttf */; };
+		45C522882A2CA7D900664876 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C5227C2A2CA7D900664876 /* SourceSansPro-Bold.ttf */; };
+		45C522892A2CA7D900664876 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C5227D2A2CA7D900664876 /* SourceSansPro-Light.ttf */; };
+		45C5228A2A2CA7D900664876 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C5227E2A2CA7D900664876 /* SourceSansPro-ExtraLight.ttf */; };
+		45C5228B2A2CA7D900664876 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C5227F2A2CA7D900664876 /* SourceSansPro-BoldItalic.ttf */; };
+		45C5228C2A2CA7D900664876 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C522802A2CA7D900664876 /* SourceSansPro-SemiBold.ttf */; };
+		45C5228D2A2CA7D900664876 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C522812A2CA7D900664876 /* SourceSansPro-BlackItalic.ttf */; };
+		45C5228E2A2CA7D900664876 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C522822A2CA7D900664876 /* SourceSansPro-LightItalic.ttf */; };
+		45C5228F2A2CA7D900664876 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C522832A2CA7D900664876 /* SourceSansPro-Italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +69,20 @@
 		45C5226A2A2C9AD000664876 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		45C5226D2A2C9BC600664876 /* WeatherImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImages.swift; sourceTree = "<group>"; };
 		45C522702A2C9CB500664876 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		45C522732A2CA1D800664876 /* WeatherStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStrings.swift; sourceTree = "<group>"; };
+		45C522762A2CA50100664876 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		45C522782A2CA7D900664876 /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		45C522792A2CA7D900664876 /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
+		45C5227A2A2CA7D900664876 /* SourceSansPro-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		45C5227B2A2CA7D900664876 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		45C5227C2A2CA7D900664876 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
+		45C5227D2A2CA7D900664876 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
+		45C5227E2A2CA7D900664876 /* SourceSansPro-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.ttf"; sourceTree = "<group>"; };
+		45C5227F2A2CA7D900664876 /* SourceSansPro-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldItalic.ttf"; sourceTree = "<group>"; };
+		45C522802A2CA7D900664876 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
+		45C522812A2CA7D900664876 /* SourceSansPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackItalic.ttf"; sourceTree = "<group>"; };
+		45C522822A2CA7D900664876 /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
+		45C522832A2CA7D900664876 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +189,8 @@
 		45C5225D2A2C824800664876 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				45C522752A2CA4C500664876 /* Font */,
+				45C522722A2CA1CD00664876 /* WeatherStrings */,
 				45C5226F2A2C9CA200664876 /* Layout */,
 				45C5226C2A2C9B6B00664876 /* WeatherImages */,
 				45C522692A2C9AC300664876 /* Constraints */,
@@ -246,6 +276,34 @@
 				45C522702A2C9CB500664876 /* Layout.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		45C522722A2CA1CD00664876 /* WeatherStrings */ = {
+			isa = PBXGroup;
+			children = (
+				45C522732A2CA1D800664876 /* WeatherStrings.swift */,
+			);
+			path = WeatherStrings;
+			sourceTree = "<group>";
+		};
+		45C522752A2CA4C500664876 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				45C522792A2CA7D900664876 /* SourceSansPro-Black.ttf */,
+				45C522812A2CA7D900664876 /* SourceSansPro-BlackItalic.ttf */,
+				45C5227C2A2CA7D900664876 /* SourceSansPro-Bold.ttf */,
+				45C5227F2A2CA7D900664876 /* SourceSansPro-BoldItalic.ttf */,
+				45C5227E2A2CA7D900664876 /* SourceSansPro-ExtraLight.ttf */,
+				45C5227A2A2CA7D900664876 /* SourceSansPro-ExtraLightItalic.ttf */,
+				45C522832A2CA7D900664876 /* SourceSansPro-Italic.ttf */,
+				45C5227D2A2CA7D900664876 /* SourceSansPro-Light.ttf */,
+				45C522822A2CA7D900664876 /* SourceSansPro-LightItalic.ttf */,
+				45C5227B2A2CA7D900664876 /* SourceSansPro-Regular.ttf */,
+				45C522802A2CA7D900664876 /* SourceSansPro-SemiBold.ttf */,
+				45C522782A2CA7D900664876 /* SourceSansPro-SemiBoldItalic.ttf */,
+				45C522762A2CA50100664876 /* Font.swift */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,8 +410,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C5228D2A2CA7D900664876 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				45C522862A2CA7D900664876 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				45C5228B2A2CA7D900664876 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				45C522852A2CA7D900664876 /* SourceSansPro-Black.ttf in Resources */,
 				45C522372A2C723500664876 /* LaunchScreen.storyboard in Resources */,
+				45C5228C2A2CA7D900664876 /* SourceSansPro-SemiBold.ttf in Resources */,
+				45C5228A2A2CA7D900664876 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				45C522842A2CA7D900664876 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 				45C522342A2C723500664876 /* Assets.xcassets in Resources */,
+				45C522882A2CA7D900664876 /* SourceSansPro-Bold.ttf in Resources */,
+				45C522872A2CA7D900664876 /* SourceSansPro-Regular.ttf in Resources */,
+				45C522892A2CA7D900664876 /* SourceSansPro-Light.ttf in Resources */,
+				45C5228F2A2CA7D900664876 /* SourceSansPro-Italic.ttf in Resources */,
+				45C5228E2A2CA7D900664876 /* SourceSansPro-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,9 +449,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				45C522682A2C99E500664876 /* OpenWeatherController.swift in Sources */,
+				45C522742A2CA1D800664876 /* WeatherStrings.swift in Sources */,
 				45C522652A2C96DD00664876 /* Colour.swift in Sources */,
 				45C5226B2A2C9AD000664876 /* Constraints.swift in Sources */,
 				45C5222F2A2C723400664876 /* SplashViewController.swift in Sources */,
+				45C522772A2CA50100664876 /* Font.swift in Sources */,
 				45C522712A2C9CB500664876 /* Layout.swift in Sources */,
 				45C5226E2A2C9BC600664876 /* WeatherImages.swift in Sources */,
 				45C5222B2A2C723400664876 /* AppDelegate.swift in Sources */,
