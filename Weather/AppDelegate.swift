@@ -9,11 +9,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func setupBaseRouting() -> UIWindow {
+    private func setupBaseRouting() -> UIWindow {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
-        window.tintColor = UIColor.systemGreen
-        window.rootViewController = UINavigationController(rootViewController: WeatherViewController())
+        window.tintColor = Colour.darkBlue
+        window.rootViewController = UINavigationController(rootViewController: SplashViewController())
         return window
     }
 }
