@@ -31,7 +31,6 @@ final class WeatherTableCell: BaseTableViewCell {
         label.textColor = Colour.white
         label.font = Font.sansProRegular
         label.text = WeatherStrings.fiveDayForecast
-        label.text = "Today"
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -42,7 +41,6 @@ final class WeatherTableCell: BaseTableViewCell {
         label.textColor = Colour.white
         label.font = Font.sansProRegular
         label.text = WeatherStrings.fiveDayForecast
-        label.text = "Partly cloudy 22º / 16º"
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
