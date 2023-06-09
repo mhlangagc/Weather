@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>openWeatherKey</key>
+	<string>53f9d8e4213222cf517d86dc406d67fc</string>
+	<key>secureApiProtocol</key>
+	<string>https</string>
+	<key>openWeatherAPIKey</key>
+	<string>53f9d8e4213222cf517d86dc406d67fc</string>
+	<key>openWeatherURI</key>
+	<string>api.openweathermap.org/data/2.5</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceSansPro-SemiBold.ttf</string>

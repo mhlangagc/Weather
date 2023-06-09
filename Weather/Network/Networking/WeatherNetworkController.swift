@@ -1,0 +1,29 @@
+import Foundation
+import UIKit
+import Combine
+
+final class WeatherNetworkController: WeatherNetworkProtocol, APIResponseProtocol {
+    
+    static let shared = WeatherNetworkController()
+    var defaultError = APIError.default
+    
+    func fetchWeatherData(for location: Location) -> Future<OpenWeather, APIError> {
+        return Future<OpenWeather, APIError> { [weak self] promise in
+            
+            let urlPath = WeatherURLCenter.weather(location).buildURL()
+            
+            APIKit.shared.fetchAPIData(forPath: urlPath,
+                                       method: .get,
+                                       model: OpenWeather.self) { (response, error) in
+                self?.handleResponse(response: response, error: error) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        promise(.failure(error))
+                    case .success(let weather):
+                        promise(.success(weather))
+                    }
+                }
+            }
+        }
+    }
+}
