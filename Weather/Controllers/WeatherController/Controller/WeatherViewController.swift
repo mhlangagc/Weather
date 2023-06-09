@@ -76,13 +76,13 @@ class WeatherViewController: OpenWeatherViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupSplashUI()
         setupTableUI()
         setupHeaderView()
         registerCells()
         requestLocationAuthorisation()
         loadingIndicatorView.startAnimating()
-        fetchLocationData()
+        fetchData()
         bindToViewModel()
     }
     
@@ -104,7 +104,7 @@ class WeatherViewController: OpenWeatherViewController {
 
 // MARK: SetupUI
 extension WeatherViewController {
-    private func setupUI() {
+    private func setupSplashUI() {
         view.addSubview(logoImageView)
         view.addSubview(loadingIndicatorView)
         view.addSubview(labelsStackView)
@@ -127,12 +127,6 @@ extension WeatherViewController {
                                               constant: Layout.spacing20).isActive = true
         labelsStackView.rightAnchor.constraint(equalTo: view.rightAnchor,
                                                constant: -Layout.spacing20).isActive = true
-    }
-    
-    @objc private func handleShowSettings() {
-        if let appSettings = URL(string: UIApplication.openSettingsURLString) {
-            UIApplication.shared.open(appSettings as URL)
-        }
     }
 }
 

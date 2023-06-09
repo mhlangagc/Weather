@@ -67,6 +67,7 @@
 		45E2F7E02A33B9820094A0FB /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F7DF2A33B9820094A0FB /* Int.swift */; };
 		45E2F7E22A33B9D70094A0FB /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F7E12A33B9D70094A0FB /* DateManager.swift */; };
 		45E2F7E92A33C7A10094A0FB /* WeatherViewController+LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F7E82A33C7A10094A0FB /* WeatherViewController+LocationManager.swift */; };
+		45E2F7EB2A33CE120094A0FB /* WeatherViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F7EA2A33CE120094A0FB /* WeatherViewController+Navigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		45E2F7DF2A33B9820094A0FB /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		45E2F7E12A33B9D70094A0FB /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		45E2F7E82A33C7A10094A0FB /* WeatherViewController+LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherViewController+LocationManager.swift"; sourceTree = "<group>"; };
+		45E2F7EA2A33CE120094A0FB /* WeatherViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherViewController+Navigation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 			children = (
 				45C522912A2CED3700664876 /* WeatherViewController.swift */,
 				45E2F7E82A33C7A10094A0FB /* WeatherViewController+LocationManager.swift */,
+				45E2F7EA2A33CE120094A0FB /* WeatherViewController+Navigation.swift */,
 				45C5229C2A2CF6C500664876 /* WeatherViewController+Network.swift */,
 				45C5229E2A2CF77600664876 /* WeatherViewController+TableView.swift */,
 			);
@@ -677,6 +680,7 @@
 				45C522972A2CEE5600664876 /* WeatherViewModel.swift in Sources */,
 				45E2F7BA2A332A200094A0FB /* WeatherURLCenter.swift in Sources */,
 				4546D6432A2D560D00CABF81 /* Observable.swift in Sources */,
+				45E2F7EB2A33CE120094A0FB /* WeatherViewController+Navigation.swift in Sources */,
 				45E2F7CE2A3355DA0094A0FB /* Dispatch.swift in Sources */,
 				45E2F7DA2A3371580094A0FB /* Wind.swift in Sources */,
 				45C5226E2A2C9BC600664876 /* WeatherImages.swift in Sources */,
