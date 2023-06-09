@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import CoreLocation
 
 class WeatherViewController: OpenWeatherViewController {
 
@@ -69,7 +70,6 @@ class WeatherViewController: OpenWeatherViewController {
         tableView.allowsSelection = false
         tableView.refreshControl = refresher
         tableView.isHidden = true
-        refresher.addTarget(self, action: #selector(fetchData), for: .valueChanged)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -80,8 +80,9 @@ class WeatherViewController: OpenWeatherViewController {
         setupTableUI()
         setupHeaderView()
         registerCells()
+        requestLocationAuthorisation()
+        loadingIndicatorView.startAnimating()
         fetchLocationData()
-        fetchData()
         bindToViewModel()
     }
     
@@ -128,13 +129,10 @@ extension WeatherViewController {
                                                constant: -Layout.spacing20).isActive = true
     }
     
-    private func fetchLocationData() {
-        loadingIndicatorView.startAnimating()
-    }
-    
-    
     @objc private func handleShowSettings() {
-        
+        if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(appSettings as URL)
+        }
     }
 }
 

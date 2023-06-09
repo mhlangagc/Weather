@@ -2,11 +2,6 @@ import Foundation
 
 extension WeatherViewController {
     
-    @objc func fetchData() {
-        viewModel.fetchWeatherData()
-        viewModel.fetchForecastData()
-    }
-    
     func bindToViewModel() {
         viewModel.weather.addAndNotify(observer: self) { [weak self] _ in
             Dispatch.main {
@@ -20,6 +15,12 @@ extension WeatherViewController {
             Dispatch.main {
                 guard let self = self else { return }
                 self.weatherTableView.reloadData()
+            }
+        }
+        
+        viewModel.error.addAndNotify(observer: self) { [weak self] _ in
+            Dispatch.main {
+                guard let self = self else { return }
             }
         }
     }
