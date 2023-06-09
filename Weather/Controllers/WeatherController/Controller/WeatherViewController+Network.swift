@@ -10,7 +10,6 @@ extension WeatherViewController {
         viewModel.weather.addAndNotify(observer: self) { [weak self] _ in
             Dispatch.main {
                 guard let self = self else { return }
-                self.weatherTableView.reloadData()
                 self.setupHeaderView()
             }
         }
