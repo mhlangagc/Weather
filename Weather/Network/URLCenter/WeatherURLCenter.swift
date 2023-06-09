@@ -1,12 +1,12 @@
 import Foundation
 
 enum WeatherURLCenter {
-    case business
+    case weather
     
     func build() -> String {
         switch self {
-        case .business:
-            return "business"
+        case .weather:
+            return "weather"
         }
     }
 }
