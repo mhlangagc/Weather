@@ -14,6 +14,10 @@ final class WeatherTableCell: BaseTableViewCell {
                 weatherDataLabel.text = weatherDescription + " " + forecast.temperature
             }
             
+            if let icon = forecast.weather?.first?.icon {
+                weatherImageView.image = UIImage(named: icon)
+            }
+            
         }
     }
     
@@ -21,7 +25,6 @@ final class WeatherTableCell: BaseTableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = WeatherImages.partlyCloudyImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

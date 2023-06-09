@@ -76,6 +76,7 @@ class WeatherViewController: OpenWeatherViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGradient()
         setupSplashUI()
         setupTableUI()
         setupHeaderView()
@@ -84,6 +85,23 @@ class WeatherViewController: OpenWeatherViewController {
         loadingIndicatorView.startAnimating()
         fetchData()
         bindToViewModel()
+    }
+    
+    private func setupGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(origin: .zero,
+                                     size: CGSize(width: screenWidth,
+                                                  height: screenHeight))
+        // let topColour = Colour.darkBlue.cgColor
+        // let bottomColour = Colour.lightBlue.cgColor
+        let topColour = Colour.black.cgColor
+        let bottomColour = Colour.darkBlue.cgColor
+        gradientLayer.colors = [topColour,
+                                bottomColour]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
+        gradientLayer.locations = [0.0, 1.0]
+        view.layer.addSublayer(gradientLayer)
     }
     
     func setupTableUI() {

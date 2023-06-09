@@ -20,6 +20,7 @@ struct Colour {
     static let lightBlue = hexToUIColor("7BBAE7")
     
     // MARK: Black & White
+    static let black = UIColor.black
     static let white = UIColor.white
     
     // MARK: HexToUIColor
