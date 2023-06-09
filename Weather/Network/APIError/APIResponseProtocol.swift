@@ -10,7 +10,7 @@ extension APIResponseProtocol {
                                            error: Error?,
                                            completion: @escaping(Result<T, APIError>) -> Void) {
         if error != nil || response == nil {
-            completion(.failure(error as? KasiAPIError ?? self.defaultError))
+            completion(.failure(error as? APIError ?? self.defaultError))
         } else if let response = response {
             completion(.success(response))
         } else {
@@ -24,7 +24,7 @@ extension APIResponseProtocol {
                                            onError: @escaping (APIError) -> Void) {
         
         if error != nil || response == nil {
-            onError(error as? KasiAPIError ?? self.defaultError)
+            onError(error as? APIError ?? self.defaultError)
         } else if let response = response {
             onSuccess(response)
         } else {
