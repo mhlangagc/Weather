@@ -1,0 +1,4 @@
+"GO_TO_SETTINGS" = "Go To Settings";
+"WEATHER_UNAVAILABLE" = "Weather App is unavailable\n\nWeather App requires permission to access your current location, you can turn this function on in settings.";
+"FIVE_DAY_FOCAST" = "5-Day Forecast";
+"HOURLY_FOCAST" = "Hourly Forecast";

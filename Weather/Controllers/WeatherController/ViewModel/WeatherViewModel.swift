@@ -5,8 +5,9 @@ import CoreLocation
 final class WeatherViewModel {
     
     var locationManager: CLLocationManager?
-    
+    lazy var networkReachabilityManager = resolve(ReachabilityManagerProtocol.self)
     lazy var networkController = resolve(WeatherNetworkProtocol.self)
+    
     var weather = Observable<OpenWeather>()
     var forecast = Observable<Forecast>()
     var cancellables = Set<AnyCancellable>()

@@ -3,11 +3,25 @@ import CoreLocation
 
 extension WeatherViewController {
     
+    
     func fetchData() {
         guard let coordinates: CLLocationCoordinate2D = viewModel.locationManager?.location?.coordinate else { return }
         let location = Location(lon: coordinates.longitude, lat: coordinates.latitude)
-        viewModel.fetchWeatherData(from: location)
-        viewModel.fetchForecastData(from: location)
+        
+        ReachabilityManager.shared.networkStatusChanged = { [weak self] in
+            Dispatch.main {
+                guard let self = self else { return }
+                let isNetworkRechable = self.viewModel.networkReachabilityManager.isReachable
+                if !isNetworkRechable {
+                    AlertManager.showAlertMessage(title: "Network Unavailable",
+                                                  message: "Your network is unreachable. Check your settings and try again",
+                                                  on: self)
+                } else {
+                    self.viewModel.fetchWeatherData(from: location)
+                    self.viewModel.fetchForecastData(from: location)
+                }
+            }
+        }
     }
     
     func bindToViewModel() {
@@ -32,7 +46,6 @@ extension WeatherViewController {
         
         viewModel.error.addAndNotify(observer: self) { [weak self] _ in
             Dispatch.main {
-                guard let self = self else { return }
             }
         }
     }
