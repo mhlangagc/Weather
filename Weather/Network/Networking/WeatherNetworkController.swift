@@ -7,28 +7,23 @@ final class WeatherNetworkController: WeatherNetworkProtocol, APIResponseProtoco
     static let shared = WeatherNetworkController()
     var defaultError = APIError.default
     
-    /*
-    func fetchBusiness(with managerID: String) -> Future<Business, APIError> {
-        return Future<Business, KasiAPIError> { [weak self] promise in
+    func fetchWeatherData(for location: Location) -> Future<OpenWeather, APIError> {
+        return Future<OpenWeather, APIError> { [weak self] promise in
             
-            let path = BusinessURLCenter.business.build()
-            let parameters = ["manager_id": managerID] as [String : Any]
+            let urlPath = WeatherURLCenter.weather(location).buildURL()
             
-            KasiAPIKit.shared.fetchAPIData(forPath: path,
-                                           parameters: parameters,
-                                           method: .post,
-                                           baseURL: .kasi,
-                                           model: Business.self) { (response, error) in
+            APIKit.shared.fetchAPIData(forPath: urlPath,
+                                       method: .get,
+                                       model: OpenWeather.self) { (response, error) in
                 self?.handleResponse(response: response, error: error) { (result) in
                     switch result {
                     case .failure(let error):
                         promise(.failure(error))
-                    case .success(let business):
-                        promise(.success(business))
+                    case .success(let weather):
+                        promise(.success(weather))
                     }
                 }
             }
         }
     }
-    */
 }

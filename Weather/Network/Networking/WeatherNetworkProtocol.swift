@@ -1,5 +1,6 @@
 import Foundation
+import Combine
 
 protocol WeatherNetworkProtocol {
-    // func acceptInvitation(fromBusiness business: Business) -> Future<Bool, APIError>
+    func fetchWeatherData(for location: Location) -> Future<OpenWeather, APIError>
 }

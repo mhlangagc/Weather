@@ -6,16 +6,14 @@ final class APIKit: KasiAPIKitProtocol {
     
     static let shared = APIKit()
 
-    func fetchAPIData<Model: Decodable>(forPath path: String,
+    func fetchAPIData<Model: Decodable>(forPath urlPath: String,
                                         parameters: Parameters = [:],
                                         headers: [HTTPHeader]? = nil,
                                         method: HTTPMethod,
-                                        baseURL: BaseURL = BaseURL.weather,
                                         encodedURL: Bool = true,
                                         model: Model.Type,
                                         completion: @escaping (Model?, APIError?) -> Void)  {
-        
-        let urlPath = baseURL.buildURL(withPath: path)
+    
         var url = URL(string: urlPath)
         
         if encodedURL {

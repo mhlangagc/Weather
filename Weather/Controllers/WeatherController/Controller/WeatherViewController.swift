@@ -56,6 +56,7 @@ extension WeatherViewController {
 
     func setupHeaderView() {
         headerView.frame = headerFrame
+        headerView.weather = self.viewModel.weather.value
         weatherTableView.tableHeaderView = headerView
     }
 }

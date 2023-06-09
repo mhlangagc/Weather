@@ -4,6 +4,7 @@ import Foundation
     case apiProtocol
     case secureApiProtocol
     case openWeatherURI
+    case openWeatherKey
 }
 
 class AppConfigManager {
@@ -36,6 +37,10 @@ class AppConfigManager {
     
     static var openWeatherURI: String {
         infoDictionary?[InfoPlistKey.openWeatherURI.rawValue] as? String ?? ""
+    }
+    
+    static var openWeatherKey: String {
+        infoDictionary?[InfoPlistKey.openWeatherKey.rawValue] as? String ?? ""
     }
     
 }

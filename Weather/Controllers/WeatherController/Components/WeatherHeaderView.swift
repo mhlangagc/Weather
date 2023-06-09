@@ -3,13 +3,21 @@ import UIKit
 
 final class WeatherHeaderView: BaseView {
     
-    static var height: CGFloat = 300
+    static var height: CGFloat = 350
+    
+    var weather: OpenWeather? {
+        didSet {
+            guard let weather = weather, let mainWeather = weather.main else { return }
+            locationLabel.text = weather.name
+            temperatureLabel.text = mainWeather.averageTemp
+            weatherConditionsLabel.text = weather.weatherDescription
+        }
+    }
     
     lazy var locationLabel: UILabel = {
         var label = UILabel()
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(36)
-        label.text = "Cape Town"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +36,6 @@ final class WeatherHeaderView: BaseView {
         var label = UILabel()
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(72)
-        label.text = "16º"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,7 +45,6 @@ final class WeatherHeaderView: BaseView {
         var label = UILabel()
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(16)
-        label.text = "Partly cloudy 22º/16º"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,6 +63,8 @@ final class WeatherHeaderView: BaseView {
     override func setupUI() {
         super.setupUI()
         addSubview(temperatureLabelStackView)
+        
+        locationLabel.height(Layout.spacing40)
         
         temperatureLabelStackView.topAnchor.constraint(equalTo: topAnchor,
                                                        constant: Layout.spacing0).isActive = true
