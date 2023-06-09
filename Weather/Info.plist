@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>OpenWeather would like to access your location so we can show you the weather in your location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>OpenWeather would like to access your location so we can show you the weather in your location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>OpenWeather would like to access your location so we can show you the weather in your location</string>
 	<key>openWeatherKey</key>
 	<string>53f9d8e4213222cf517d86dc406d67fc</string>
 	<key>secureApiProtocol</key>

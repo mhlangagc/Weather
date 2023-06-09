@@ -19,21 +19,6 @@ class OpenWeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGradient()
     }
-    
-    private func setupGradient() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(origin: .zero,
-                                     size: CGSize(width: screenWidth,
-                                                  height: screenHeight))
-        let topColour = Colour.darkBlue.cgColor
-        let bottomColour = Colour.lightBlue.cgColor
-        gradientLayer.colors = [topColour,
-                                bottomColour]
-        gradientLayer.locations = [0.0, 1.0]
-        view.layer.addSublayer(gradientLayer)
-    }
-
 }
 

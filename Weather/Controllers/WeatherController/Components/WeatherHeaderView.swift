@@ -11,6 +11,10 @@ final class WeatherHeaderView: BaseView {
             locationLabel.text = weather.name
             temperatureLabel.text = mainWeather.averageTemp
             weatherConditionsLabel.text = weather.weatherDescription
+            
+            if let icon = weather.weather?.first?.icon {
+                weatherImageView.image = UIImage(named: icon)
+            }
         }
     }
     
@@ -27,7 +31,6 @@ final class WeatherHeaderView: BaseView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.image = WeatherImages.partlyCloudyImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

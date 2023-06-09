@@ -4,11 +4,27 @@ final class WeatherTableCell: BaseTableViewCell {
     
     static var height: CGFloat = Layout.spacing50
     
+    
+    var forecast: ForecastList? {
+        didSet {
+            guard let forecast = forecast else { return }
+            weekDayLabel.text = forecast.date
+            
+            if let weatherDescription = forecast.weather?.first?.main {
+                weatherDataLabel.text = weatherDescription + " " + forecast.temperature
+            }
+            
+            if let icon = forecast.weather?.first?.icon {
+                weatherImageView.image = UIImage(named: icon)
+            }
+            
+        }
+    }
+    
     lazy var weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = WeatherImages.partlyCloudyImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -18,7 +34,6 @@ final class WeatherTableCell: BaseTableViewCell {
         label.textColor = Colour.white
         label.font = Font.sansProRegular
         label.text = WeatherStrings.fiveDayForecast
-        label.text = "Today"
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -29,7 +44,6 @@ final class WeatherTableCell: BaseTableViewCell {
         label.textColor = Colour.white
         label.font = Font.sansProRegular
         label.text = WeatherStrings.fiveDayForecast
-        label.text = "Partly cloudy 22º / 16º"
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -32,6 +32,8 @@ public func resolve<Protocol>(_ aProtocol: Protocol.Type) -> Protocol {
     }
     
     static func registerNetworkControllers() {
+        DependencyContainer.shared.register( { ReachabilityManager.shared },
+                                             for: ReachabilityManagerProtocol.self)
         DependencyContainer.shared.register( { WeatherNetworkController.shared },
                                              for: WeatherNetworkProtocol.self)
     }
