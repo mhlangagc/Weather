@@ -4,6 +4,7 @@ extension WeatherViewController {
     
     @objc func fetchData() {
         viewModel.fetchWeatherData()
+        viewModel.fetchForecastData()
     }
     
     func bindToViewModel() {
@@ -11,6 +12,13 @@ extension WeatherViewController {
             Dispatch.main {
                 guard let self = self else { return }
                 self.setupHeaderView()
+            }
+        }
+        
+        viewModel.forecast.addAndNotify(observer: self) { [weak self] _ in
+            Dispatch.main {
+                guard let self = self else { return }
+                self.weatherTableView.reloadData()
             }
         }
     }

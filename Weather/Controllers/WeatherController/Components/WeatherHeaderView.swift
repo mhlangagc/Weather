@@ -19,6 +19,7 @@ final class WeatherHeaderView: BaseView {
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(36)
         label.textAlignment = .center
+        label.text = "-"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -37,6 +38,7 @@ final class WeatherHeaderView: BaseView {
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(72)
         label.textAlignment = .center
+        label.text = "-"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,6 +48,7 @@ final class WeatherHeaderView: BaseView {
         label.textColor = Colour.white
         label.font = Font.sansProRegular.withSize(16)
         label.textAlignment = .center
+        label.text = "• • •"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

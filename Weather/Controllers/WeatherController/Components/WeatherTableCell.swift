@@ -4,6 +4,16 @@ final class WeatherTableCell: BaseTableViewCell {
     
     static var height: CGFloat = Layout.spacing50
     
+    
+    var forecast: ForecastList? {
+        didSet {
+            guard let forecast = forecast else { return }
+            // locationLabel.text = weather.name
+            // temperatureLabel.text = mainWeather.averageTemp
+            // weatherConditionsLabel.text = weather.weatherDescription
+        }
+    }
+    
     lazy var weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
