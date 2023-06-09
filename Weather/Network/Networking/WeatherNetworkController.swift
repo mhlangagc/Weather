@@ -30,7 +30,7 @@ final class WeatherNetworkController: WeatherNetworkProtocol, APIResponseProtoco
     func fetchForecastData(for location: Location) -> Future<Forecast, APIError> {
         return Future<Forecast, APIError> { [weak self] promise in
             
-            let urlPath = WeatherURLCenter.forecast(location, 5).buildURL()
+            let urlPath = WeatherURLCenter.forecast(location, 6).buildURL()
             APIKit.shared.fetchAPIData(forPath: urlPath,
                                        method: .get,
                                        model: Forecast.self) { (response, error) in

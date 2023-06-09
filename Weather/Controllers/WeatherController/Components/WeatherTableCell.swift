@@ -8,9 +8,12 @@ final class WeatherTableCell: BaseTableViewCell {
     var forecast: ForecastList? {
         didSet {
             guard let forecast = forecast else { return }
-            // locationLabel.text = weather.name
-            // temperatureLabel.text = mainWeather.averageTemp
-            // weatherConditionsLabel.text = weather.weatherDescription
+            weekDayLabel.text = forecast.date
+            
+            if let weatherDescription = forecast.weather?.first?.main {
+                weatherDataLabel.text = weatherDescription + " " + forecast.temperature
+            }
+            
         }
     }
     

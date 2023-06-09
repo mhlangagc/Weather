@@ -11,6 +11,19 @@ struct ForecastList: Codable {
     var gust: Double?
     var clouds: Int?
     var pop, rain: Double?
+    
+    var temperature: String {
+        guard let max = temp?.max, let min = temp?.min else { return "" }
+        return "\(Int(max))º/\(Int(min))º"
+    }
+    
+    var date: String {
+        guard let date = dt else { return "" }
+        let dateValue = date.dateFromInt
+        return DateManager.day.stringFrom(date: Date()) == DateManager.day.stringFrom(date: dateValue)
+        ? "Today"
+        :  DateManager.day.stringFrom(date: dateValue)
+    }
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, temp
