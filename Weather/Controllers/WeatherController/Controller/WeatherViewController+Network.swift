@@ -11,6 +11,7 @@ extension WeatherViewController {
         viewModel.weather.addAndNotify(observer: self) { [weak self] _ in
             Dispatch.main {
                 guard let self = self else { return }
+                self.hideLoadingData()
                 self.setupHeaderView()
             }
         }
@@ -21,5 +22,12 @@ extension WeatherViewController {
                 self.weatherTableView.reloadData()
             }
         }
+    }
+    
+    private func hideLoadingData() {
+        logoImageView.isHidden = true
+        loadingIndicatorView.stopAnimating()
+        labelsStackView.isHidden = true
+        weatherTableView.isHidden = false
     }
 }
