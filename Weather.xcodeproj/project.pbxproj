@@ -15,6 +15,9 @@
 		45B03F0A2A39B5BE00A27BA4 /* WeatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B03F092A39B5BE00A27BA4 /* WeatherViewModelTests.swift */; };
 		45B03FF32A3A03C800A27BA4 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B03FF22A3A03C800A27BA4 /* MockNetworkService.swift */; };
 		45B03FF52A3A0B6700A27BA4 /* WeatherViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B03FF42A3A0B6700A27BA4 /* WeatherViewModelDelegate.swift */; };
+		45B03FF72A3A135200A27BA4 /* WeatherViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B03FF62A3A135200A27BA4 /* WeatherViewModelDelegateMock.swift */; };
+		45B03FFB2A3A28FD00A27BA4 /* MockOpenWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 45B03FFA2A3A28FD00A27BA4 /* MockOpenWeather.json */; };
+		45B03FFD2A3A292500A27BA4 /* MockFocast.json in Resources */ = {isa = PBXBuildFile; fileRef = 45B03FFC2A3A292500A27BA4 /* MockFocast.json */; };
 		45C5222B2A2C723400664876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5222A2A2C723400664876 /* AppDelegate.swift */; };
 		45C522342A2C723500664876 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C522332A2C723500664876 /* Assets.xcassets */; };
 		45C522372A2C723500664876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45C522352A2C723500664876 /* LaunchScreen.storyboard */; };
@@ -112,6 +115,9 @@
 		45B03F092A39B5BE00A27BA4 /* WeatherViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelTests.swift; sourceTree = "<group>"; };
 		45B03FF22A3A03C800A27BA4 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		45B03FF42A3A0B6700A27BA4 /* WeatherViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelDelegate.swift; sourceTree = "<group>"; };
+		45B03FF62A3A135200A27BA4 /* WeatherViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelDelegateMock.swift; sourceTree = "<group>"; };
+		45B03FFA2A3A28FD00A27BA4 /* MockOpenWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockOpenWeather.json; sourceTree = "<group>"; };
+		45B03FFC2A3A292500A27BA4 /* MockFocast.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockFocast.json; sourceTree = "<group>"; };
 		45C522272A2C723400664876 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C5222A2A2C723400664876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45C522332A2C723500664876 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -581,6 +587,8 @@
 			isa = PBXGroup;
 			children = (
 				45E2F8012A3982D20094A0FB /* MockLocation.json */,
+				45B03FFA2A3A28FD00A27BA4 /* MockOpenWeather.json */,
+				45B03FFC2A3A292500A27BA4 /* MockFocast.json */,
 				45E2F8032A3983150094A0FB /* ConvertJsonToModel */,
 			);
 			path = Mocks;
@@ -623,6 +631,7 @@
 		45E2F80A2A3985A00094A0FB /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				45B03FF62A3A135200A27BA4 /* WeatherViewModelDelegateMock.swift */,
 				45B03F092A39B5BE00A27BA4 /* WeatherViewModelTests.swift */,
 			);
 			path = ViewModelTests;
@@ -779,6 +788,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B03FFB2A3A28FD00A27BA4 /* MockOpenWeather.json in Resources */,
+				45B03FFD2A3A292500A27BA4 /* MockFocast.json in Resources */,
 				45E2F8022A3982D20094A0FB /* MockLocation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -855,6 +866,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B03FF32A3A03C800A27BA4 /* MockNetworkService.swift in Sources */,
+				45B03FF72A3A135200A27BA4 /* WeatherViewModelDelegateMock.swift in Sources */,
 				45E2F80F2A39896C0094A0FB /* HTTPMethodTest.swift in Sources */,
 				45E2F8142A398CA80094A0FB /* DateManagerTest.swift in Sources */,
 				45E2F8172A39A4590094A0FB /* AppConfigManagerTest.swift in Sources */,

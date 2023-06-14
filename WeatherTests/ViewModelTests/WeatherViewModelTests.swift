@@ -5,57 +5,57 @@
 //  Created by Gugulethu Mhlanga on 2023/06/14.
 //
 
+import Foundation
 import XCTest
 import CoreLocation
 @testable import Weather
 
 final class WeatherViewModelTests: XCTestCase {
     
-    /*
-    var locationManager: CLLocationManager?
+    private var delegateMock: WeatherViewModelDelegateMock?
+    private var viewModelUnderTest: WeatherViewModel?
     var mockNetworkService: MockNetworkService?
-    var viewModelUnderTest: WeatherViewModel?
+    
+    var locationManager: CLLocationManager?
     var mockLocation: Location?
     
-    override class func setUp() {
+    override func setUp() {
         super.setUp()
-        
-        registerMockDependencies()
+        DependencyContainer.registerDefaults()
         mockNetworkService = MockNetworkService.shared
-        viewModelUnderTest = WeatherViewModel()
+        delegateMock = WeatherViewModelDelegateMock()
         mockLocation = ConvertJsonToModel.convert(fromFile: "MockLocation")
-        
+        viewModelUnderTest = WeatherViewModel()
+        viewModelUnderTest?.delegate = delegateMock
     }
     
-    override class func tearDown() {
+    override func tearDown() {
         super.tearDown()
-        DependencyContainer.shared.reset()
+        DependencyContainer.reset()
         mockNetworkService = nil
         viewModelUnderTest = nil
         mockLocation = nil
     }
     
-    func registerMockDependencies() {
-        DependencyContainer.shared.registerDefaults()
+    func testFetchWeatherData() {
+        self.mockNetworkService?.weatherDataFetch = true
+        self.viewModelUnderTest?.fetchWeatherData(from: mockLocation!)
+        print(self.delegateMock!.hideLoaderInvoked)
+        XCTAssertTrue(self.delegateMock!.hideLoaderInvoked)
+//        XCTAssertTrue(self.delegateMock!.showTableViewInvoked)
+//        XCTAssertTrue(self.delegateMock!.weatherDataFetched)
     }
     
-    func fetchWeatherData(from location: Location) {
-        networkController.fetchWeatherData(for: mockLocation)
-            .receive(on: DispatchQueue.main)
-            .sink { results in
-                switch results {
-                case .failure(let error):
-                    self.error.value = error
-                case .finished:
-                    debugLog("✅Weather Data Fetched")
-                }
-            } receiveValue: { weather in
-                self.weather.value = weather
-            }.store(in: &cancellables)
+    func testFetchWeatherDataFail() {
+        self.mockNetworkService?.weatherDataFetchFailed = true
+        self.viewModelUnderTest?.fetchWeatherData(from: mockLocation!)
+        XCTAssertTrue(self.delegateMock!.hideLoaderInvoked)
+//        XCTAssertTrue(self.delegateMock!.showErrorInvoked)
+//        XCTAssertEqual(self.delegateMock!.apiError, "")
     }
     
-    func fetchForecastData(from location: Location) {
+    func testFetchForecastData(from location: Location) {
         
     }
-    */
+
 }

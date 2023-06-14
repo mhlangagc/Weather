@@ -15,15 +15,42 @@ final class MockNetworkService: APIResponseProtocol {
     static let shared = MockNetworkService()
     var defaultError = APIError.default
     
-    var isWeatherDataFetched = false
-    var isForecastDataFetched = false
+    var weatherDataFetch = false
+    var weatherDataFetchFailed = false
+    var forecastDataFetch = false
+    var forecastDataFetchFailed = false
     
-//    func fetchWeatherData(for location: Location) -> Future<OpenWeather, APIError> {
-//        isWeatherDataFetched = true
-//    }
-//    
-//    func fetchForecastData(for location: Location) -> Future<Forecast, APIError> {
-//        isForecastDataFetched = true
-//    }
+    func fetchWeatherData(for location: Location) -> Future<OpenWeather, APIError> {
+        return Future<OpenWeather, APIError> { [weak self] promise in
+            guard let self = self else { return }
+            
+            if self.weatherDataFetch {
+                guard let mockOpenWeatherData: OpenWeather  = ConvertJsonToModel.convert(fromFile: "MockOpenWeather") else { return }
+                promise(.success(mockOpenWeatherData))
+            }
+            
+            if self.weatherDataFetchFailed {
+                promise(.failure(APIError.noData))
+            }
+        }
+        
+        
+    }
+    
+    func fetchForecastData(for location: Location) -> Future<Forecast, APIError> {
+        return Future<Forecast, APIError> { [weak self] promise in
+            guard let self = self else { return }
+            
+            if self.forecastDataFetch {
+                guard let mockOpenWeatherData: Forecast  = ConvertJsonToModel.convert(fromFile: "MockFocast") else { return }
+                promise(.success(mockOpenWeatherData))
+            }
+            
+            if self.forecastDataFetchFailed {
+                promise(.failure(APIError.noData))
+            }
+        }
+        
+    }
     
 }
