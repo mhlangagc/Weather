@@ -58,7 +58,7 @@ final class WeatherHeaderView: BaseView {
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
-        stackView.spacing = Layout.spacing0
+        stackView.spacing = Layout.spacing8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -74,7 +74,8 @@ final class WeatherHeaderView: BaseView {
         temperatureLabelStackView.leftAnchor ->> leftAnchor
         temperatureLabelStackView.rightAnchor ->> rightAnchor
         
-        weatherConditionsLabel.height(Layout.spacing25)
+        temperatureLabel.height(Layout.spacing80)
+        weatherConditionsLabel.height(Layout.spacing32)
         
         weatherImageView.height(Layout.spacing150)
         weatherImageView.width(Layout.spacing150)

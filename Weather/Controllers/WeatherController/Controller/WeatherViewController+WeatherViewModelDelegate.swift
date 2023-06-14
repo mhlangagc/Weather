@@ -32,6 +32,10 @@ extension WeatherViewController: WeatherViewModelDelegate {
     }
     
     func showTableView() {
+        if let weatherIcon = viewModel.weatherData?.weather?.first?.icon {
+            setupGradient(forDayTime: weatherIcon.contains("d"))
+            setupTableUI()
+        }
         weatherTableView.isHidden = false
         weatherTableView.reloadData()
     }
