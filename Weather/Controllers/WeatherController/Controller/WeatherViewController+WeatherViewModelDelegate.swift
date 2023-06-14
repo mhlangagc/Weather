@@ -5,19 +5,26 @@ extension WeatherViewController: WeatherViewModelDelegate {
     
     func fetchWeatherData() {
         guard let coordinates: CLLocationCoordinate2D = viewModel.locationManager?.location?.coordinate else { return }
-        let location = Location(lon: coordinates.longitude, lat: coordinates.latitude)
         
-        ReachabilityManager.shared.networkStatusChanged = { [weak self] in
-            Dispatch.main {
-                guard let self = self else { return }
-                let isNetworkRechable = self.viewModel.networkReachabilityManager.isReachable
-                if !isNetworkRechable {
-                    AlertManager.showAlertMessage(title: WeatherStrings.networkUnavailable,
-                                                  message: WeatherStrings.networkUnavailableDetail,
-                                                  on: self)
-                } else {
-                    self.viewModel.getWeatherData(from: location)
-                    self.viewModel.getForecastData(from: location)
+        let location = Location(lon: coordinates.longitude, lat: coordinates.latitude)
+        let isNetworkRechable = self.viewModel.networkReachabilityManager.isReachable
+        
+        if isNetworkRechable {
+            self.viewModel.getWeatherData(from: location)
+            self.viewModel.getForecastData(from: location)
+        } else {
+            ReachabilityManager.shared.networkStatusChanged = { [weak self] in
+                Dispatch.main {
+                    guard let self = self else { return }
+                    
+                    if !isNetworkRechable {
+                        AlertManager.showAlertMessage(title: WeatherStrings.networkUnavailable,
+                                                      message: WeatherStrings.networkUnavailableDetail,
+                                                      on: self)
+                    } else {
+                        self.viewModel.getWeatherData(from: location)
+                        self.viewModel.getForecastData(from: location)
+                    }
                 }
             }
         }
