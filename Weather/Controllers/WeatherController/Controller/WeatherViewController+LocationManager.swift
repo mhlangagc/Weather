@@ -24,7 +24,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
         case .notDetermined:
             requestLocationAuthorisation()
         case .authorizedWhenInUse, .authorizedAlways:
-            fetchData()
+            fetchWeatherData()
         case .denied, .restricted:
             self.showRequestDenied()
         default:
@@ -33,6 +33,6 @@ extension WeatherViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        fetchData()
+        fetchWeatherData()
     }
 }

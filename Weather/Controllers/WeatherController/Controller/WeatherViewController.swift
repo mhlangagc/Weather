@@ -4,7 +4,7 @@ import CoreLocation
 
 class WeatherViewController: OpenWeatherViewController {
 
-    lazy var viewModel = WeatherViewModel()
+    var viewModel: WeatherViewModel
     lazy var headerView = WeatherHeaderView()
     
     lazy var logoImageView: UIImageView = {
@@ -74,6 +74,16 @@ class WeatherViewController: OpenWeatherViewController {
         return tableView
     }()
     
+    init() {
+        self.viewModel = WeatherViewModel()
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGradient()
@@ -83,8 +93,7 @@ class WeatherViewController: OpenWeatherViewController {
         registerCells()
         requestLocationAuthorisation()
         loadingIndicatorView.startAnimating()
-        fetchData()
-        bindToViewModel()
+        fetchWeatherData()
     }
     
     private func setupGradient() {
@@ -158,7 +167,7 @@ extension WeatherViewController {
 
     func setupHeaderView() {
         headerView.frame = headerFrame
-        headerView.weather = self.viewModel.weather.value
+        headerView.weather = self.viewModel.weatherData
         weatherTableView.tableHeaderView = headerView
     }
 }

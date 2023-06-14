@@ -4,27 +4,30 @@ import CoreLocation
 
 final class WeatherViewModel {
     
+    weak var delegate: WeatherViewModelDelegate?
+    var forecastData: Forecast?
+    var weatherData: OpenWeather?
     var locationManager: CLLocationManager?
     lazy var networkReachabilityManager = resolve(ReachabilityManagerProtocol.self)
-    lazy var networkController = resolve(WeatherNetworkProtocol.self)
-    
-    var weather = Observable<OpenWeather>()
-    var forecast = Observable<Forecast>()
+    lazy var networkController = resolve(WeatherNetworkServiceProtocol.self)
     var cancellables = Set<AnyCancellable>()
-    var error = Observable<APIError>()
-        
+    
     func fetchWeatherData(from location: Location) {
         networkController.fetchWeatherData(for: location)
             .receive(on: DispatchQueue.main)
             .sink { results in
                 switch results {
                 case .failure(let error):
-                    self.error.value = error
+                    self.delegate?.hideLoader()
+                    self.delegate?.showApiError(error)
                 case .finished:
                     debugLog("✅Weather Data Fetched")
                 }
             } receiveValue: { weather in
-                self.weather.value = weather
+                self.weatherData = weather
+                self.delegate?.hideLoader()
+                self.delegate?.showTableView()
+                self.delegate?.weatherFetchComplete()
             }.store(in: &cancellables)
     }
     
@@ -34,12 +37,16 @@ final class WeatherViewModel {
             .sink { results in
                 switch results {
                 case .failure(let error):
-                    self.error.value = error
+                    self.delegate?.hideLoader()
+                    self.delegate?.showApiError(error)
                 case .finished:
                     debugLog("✅Weather Data Fetched")
                 }
             } receiveValue: { forecast in
-                self.forecast.value = forecast
+                self.forecastData = forecast
+                self.delegate?.hideLoader()
+                self.delegate?.showTableView()
+                self.delegate?.forecastFetchComplete()
             }.store(in: &cancellables)
     }
 }

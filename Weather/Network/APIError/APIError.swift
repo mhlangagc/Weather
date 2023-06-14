@@ -5,6 +5,6 @@ enum APIError: Error {
     case invalidURL
     case invalidCredentials
     case noData
-    case network
+    case noNetwork
     case custom(String)
 }
