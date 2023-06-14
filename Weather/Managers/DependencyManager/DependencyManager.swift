@@ -5,6 +5,7 @@ public func resolve<Protocol>(_ aProtocol: Protocol.Type) -> Protocol {
 }
 
 @objc final public class DependencyContainer: NSObject {
+    
     private var registrations = [String: () -> Any]()
     @objc(sharedInstance)
     static public var shared = DependencyContainer()
@@ -22,7 +23,7 @@ public func resolve<Protocol>(_ aProtocol: Protocol.Type) -> Protocol {
         return aProtocol
     }
     
-    static func reset() {
+    public static func reset() {
         DependencyContainer.shared.registrations.removeAll()
         registerDefaults()
     }
@@ -34,8 +35,8 @@ public func resolve<Protocol>(_ aProtocol: Protocol.Type) -> Protocol {
     static func registerNetworkControllers() {
         DependencyContainer.shared.register( { ReachabilityManager.shared },
                                              for: ReachabilityManagerProtocol.self)
-        DependencyContainer.shared.register( { WeatherNetworkController.shared },
-                                             for: WeatherNetworkProtocol.self)
+        DependencyContainer.shared.register( { WeatherNetworkService.shared },
+                                             for: WeatherNetworkServiceProtocol.self)
     }
     
 }

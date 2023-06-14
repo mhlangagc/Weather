@@ -4,7 +4,7 @@ import UIKit
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.forecast.value?.list?.count ?? 0 + 1
+        return viewModel.forecastData?.list?.count ?? 0 + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -18,7 +18,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             guard let weatherCell = tableView.dequeueReusableCell(withIdentifier: WeatherTableCell.identifier,
                                                                   for: indexPath) as? WeatherTableCell,
-                  let forecastList = viewModel.forecast.value?.list else {
+                  let forecastList = viewModel.forecastData?.list else {
                  return UITableViewCell()
             }
             weatherCell.forecast = forecastList[indexPath.row - 1]

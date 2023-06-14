@@ -17,7 +17,6 @@ final class WeatherTableCell: BaseTableViewCell {
             if let icon = forecast.weather?.first?.icon {
                 weatherImageView.image = UIImage(named: icon)
             }
-            
         }
     }
     

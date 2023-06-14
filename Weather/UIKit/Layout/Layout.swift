@@ -22,6 +22,7 @@ public enum Layout: LayoutProtocol {
     static var spacing32: CGFloat = 32
     static var spacing40: CGFloat = 40
     static var spacing50: CGFloat = 50
+    static var spacing80: CGFloat = 80
     static var spacing100: CGFloat = 100
     static var spacing150: CGFloat = 150
     static var spacing220: CGFloat = 220

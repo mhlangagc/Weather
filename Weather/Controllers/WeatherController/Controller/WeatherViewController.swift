@@ -4,7 +4,7 @@ import CoreLocation
 
 class WeatherViewController: OpenWeatherViewController {
 
-    lazy var viewModel = WeatherViewModel()
+    var viewModel: WeatherViewModel!
     lazy var headerView = WeatherHeaderView()
     
     lazy var logoImageView: UIImageView = {
@@ -76,6 +76,7 @@ class WeatherViewController: OpenWeatherViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = WeatherViewModel(delegate: self)
         setupGradient()
         setupSplashUI()
         setupTableUI()
@@ -83,19 +84,16 @@ class WeatherViewController: OpenWeatherViewController {
         registerCells()
         requestLocationAuthorisation()
         loadingIndicatorView.startAnimating()
-        fetchData()
-        bindToViewModel()
+        fetchWeatherData()
     }
     
-    private func setupGradient() {
+    func setupGradient(forDayTime: Bool = true) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(origin: .zero,
                                      size: CGSize(width: screenWidth,
                                                   height: screenHeight))
-        // let topColour = Colour.darkBlue.cgColor
-        // let bottomColour = Colour.lightBlue.cgColor
-        let topColour = Colour.black.cgColor
-        let bottomColour = Colour.darkBlue.cgColor
+        let topColour = forDayTime ? Colour.darkBlue.cgColor : Colour.black.cgColor
+        let bottomColour = forDayTime ? Colour.lightBlue.cgColor : Colour.darkBlue.cgColor
         gradientLayer.colors = [topColour,
                                 bottomColour]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
@@ -158,7 +156,7 @@ extension WeatherViewController {
 
     func setupHeaderView() {
         headerView.frame = headerFrame
-        headerView.weather = self.viewModel.weather.value
+        headerView.weather = self.viewModel.weatherData
         weatherTableView.tableHeaderView = headerView
     }
 }

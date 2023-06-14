@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 import Combine
 
-final class WeatherNetworkController: WeatherNetworkProtocol, APIResponseProtocol {
+final class WeatherNetworkService: WeatherNetworkServiceProtocol, APIResponseProtocol {
     
-    static let shared = WeatherNetworkController()
+    static let shared = WeatherNetworkService()
     var defaultError = APIError.default
     
     func fetchWeatherData(for location: Location) -> Future<OpenWeather, APIError> {
@@ -26,6 +26,7 @@ final class WeatherNetworkController: WeatherNetworkProtocol, APIResponseProtoco
             }
         }
     }
+    
     
     func fetchForecastData(for location: Location) -> Future<Forecast, APIError> {
         return Future<Forecast, APIError> { [weak self] promise in

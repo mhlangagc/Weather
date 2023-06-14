@@ -1,14 +1,13 @@
 import Foundation
 
 @frozen enum InfoPlistKey: String {
-    case apiProtocol
     case secureApiProtocol
     case openWeatherURI
     case openWeatherKey
 }
 
-class AppConfigManager {
-    
+class AppConfigManager: AppConfigManagerProtocol {
+
     static let infoDictionary = Bundle.main.infoDictionary
     
     static var bundleID: String {
@@ -27,20 +26,8 @@ class AppConfigManager {
         return Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
     }
     
-    static var apiProtocol: String {
-        infoDictionary?[InfoPlistKey.apiProtocol.rawValue] as! String
-    }
-    
-    static var secureApiProtocol: String {
-        return infoDictionary?[InfoPlistKey.secureApiProtocol.rawValue] as! String
-    }
-    
-    static var openWeatherURI: String {
-        infoDictionary?[InfoPlistKey.openWeatherURI.rawValue] as? String ?? ""
-    }
-    
-    static var openWeatherKey: String {
-        infoDictionary?[InfoPlistKey.openWeatherKey.rawValue] as? String ?? ""
-    }
+    static var secureApiProtocol: String = infoDictionary?[InfoPlistKey.secureApiProtocol.rawValue] as? String ?? ""
+    static var openWeatherURI: String = infoDictionary?[InfoPlistKey.openWeatherURI.rawValue] as? String ?? ""
+    static var openWeatherKey: String  = infoDictionary?[InfoPlistKey.openWeatherKey.rawValue] as? String ?? ""
     
 }
