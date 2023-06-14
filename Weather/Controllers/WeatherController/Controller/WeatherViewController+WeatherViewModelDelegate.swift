@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import CoreLocation
 
 extension WeatherViewController: WeatherViewModelDelegate {
@@ -9,6 +10,13 @@ extension WeatherViewController: WeatherViewModelDelegate {
         let location = Location(lon: coordinates.longitude, lat: coordinates.latitude)
         let isNetworkRechable = self.viewModel.networkReachabilityManager.isReachable
         
+        if !isNetworkRechable {
+            AlertManager.showAlertMessage(title: WeatherStrings.networkUnavailable,
+                                          message: WeatherStrings.networkUnavailableDetail,
+                                          on: self)
+            return
+        }
+        
         if isNetworkRechable {
             self.viewModel.getWeatherData(from: location)
             self.viewModel.getForecastData(from: location)
@@ -16,7 +24,6 @@ extension WeatherViewController: WeatherViewModelDelegate {
             ReachabilityManager.shared.networkStatusChanged = { [weak self] in
                 Dispatch.main {
                     guard let self = self else { return }
-                    
                     if !isNetworkRechable {
                         AlertManager.showAlertMessage(title: WeatherStrings.networkUnavailable,
                                                       message: WeatherStrings.networkUnavailableDetail,
@@ -48,9 +55,24 @@ extension WeatherViewController: WeatherViewModelDelegate {
     }
     
     func showApiError(_ error: APIError) {
-        AlertManager.showAlertMessage(title: WeatherStrings.weatherErrorTitle,
-                                      message: error.localizedDescription,
-                                      on: self)
+        let tryAgainButton = UIAlertAction(title: WeatherStrings.tryAgainTitle, style: .default) { _ in
+            self.fetchWeatherData()
+        }
+        
+        var errorMessage = ""
+        switch error {
+        case .custom(let error):
+            errorMessage = error
+        case .noNetwork:
+            errorMessage = WeatherStrings.networkUnavailableDetail
+        default:
+            errorMessage = error.localizedDescription
+        }
+        
+        AlertManager.show(title: WeatherStrings.weatherErrorTitle,
+                          message: errorMessage,
+                          actions: [tryAgainButton],
+                          on: self)
     }
     
     func weatherFetchComplete() {

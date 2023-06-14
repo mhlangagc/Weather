@@ -100,7 +100,6 @@ final class APIKit: KasiAPIKitProtocol {
                 // Return a Bool of the Model is a bool
                 if Model.self == Bool.self {
                     return completion(true as? Model, nil)
-                    
                 }
                 
                 let dataReceived = String(data: data, encoding: .utf8)
