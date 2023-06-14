@@ -10,6 +10,7 @@ import CoreLocation
 
 class WeatherViewModelDelegateMock: WeatherViewModelDelegate{
     
+    var showLoaderInvoked = false
     var hideLoaderInvoked = false
     var showErrorInvoked = false
     var apiError: String?
@@ -17,6 +18,9 @@ class WeatherViewModelDelegateMock: WeatherViewModelDelegate{
     var weatherDataFetched = false
     var forecastDataFetched = false
     
+    func showLoader() {
+        showLoaderInvoked = true
+    }
     func hideLoader() {
         hideLoaderInvoked = true
     }

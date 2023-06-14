@@ -4,7 +4,7 @@ import CoreLocation
 
 class WeatherViewController: OpenWeatherViewController {
 
-    var viewModel: WeatherViewModel
+    var viewModel: WeatherViewModel!
     lazy var headerView = WeatherHeaderView()
     
     lazy var logoImageView: UIImageView = {
@@ -74,18 +74,9 @@ class WeatherViewController: OpenWeatherViewController {
         return tableView
     }()
     
-    init() {
-        self.viewModel = WeatherViewModel()
-        super.init(nibName: nil, bundle: nil)
-        self.viewModel.delegate = self
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = WeatherViewModel(delegate: self)
         setupGradient()
         setupSplashUI()
         setupTableUI()

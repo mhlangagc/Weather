@@ -16,11 +16,15 @@ extension WeatherViewController: WeatherViewModelDelegate {
                                                   message: WeatherStrings.networkUnavailableDetail,
                                                   on: self)
                 } else {
-                    self.viewModel.fetchWeatherData(from: location)
-                    self.viewModel.fetchForecastData(from: location)
+                    self.viewModel.getWeatherData(from: location)
+                    self.viewModel.getForecastData(from: location)
                 }
             }
         }
+    }
+    
+    func showLoader() {
+        self.loadingIndicatorView.startAnimating()
     }
     
     func hideLoader() {

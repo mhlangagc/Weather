@@ -27,6 +27,7 @@ final class WeatherNetworkService: WeatherNetworkServiceProtocol, APIResponsePro
         }
     }
     
+    
     func fetchForecastData(for location: Location) -> Future<Forecast, APIError> {
         return Future<Forecast, APIError> { [weak self] promise in
             
