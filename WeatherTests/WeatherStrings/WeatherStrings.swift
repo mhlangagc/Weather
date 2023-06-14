@@ -18,6 +18,7 @@ final class WeatherStringsTests: XCTestCase, WeatherStringsProtocol {
     static var weatherErrorTitle: String = "Weather Error"
     static var networkUnavailable: String = "Network Unavailable"
     static var networkUnavailableDetail: String = "Your network is unreachable. Check your settings and try again"
+    static var tryAgainTitle: String = "Try Again"
     
     func testWeatherStrings() {
         XCTAssertEqual(WeatherStringsTests.goToSettings, WeatherStrings.goToSettings)
@@ -27,5 +28,6 @@ final class WeatherStringsTests: XCTestCase, WeatherStringsProtocol {
         XCTAssertEqual(WeatherStringsTests.weatherErrorTitle, WeatherStrings.weatherErrorTitle)
         XCTAssertEqual(WeatherStringsTests.networkUnavailable, WeatherStrings.networkUnavailable)
         XCTAssertEqual(WeatherStringsTests.networkUnavailableDetail, WeatherStrings.networkUnavailableDetail)
+        XCTAssertEqual(WeatherStringsTests.tryAgainTitle, WeatherStrings.tryAgainTitle)
     }
 }

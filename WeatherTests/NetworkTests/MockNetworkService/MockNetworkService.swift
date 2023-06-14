@@ -27,7 +27,7 @@ final class MockNetworkService: WeatherNetworkServiceProtocol {
                 promise(.success(mockOpenWeatherData))
             }
             if self.weatherDataFetchFailed {
-                promise(.failure(APIError.noData))
+                promise(.failure(APIError.default))
             }
         }
         
@@ -44,7 +44,7 @@ final class MockNetworkService: WeatherNetworkServiceProtocol {
             }
             
             if self.forecastDataFetchFailed {
-                promise(.failure(APIError.noData))
+                promise(.failure(APIError.default))
             }
         }
         
