@@ -47,8 +47,9 @@ extension WeatherViewController: WeatherViewModelDelegate {
     
     func showTableView() {
         if let weatherIcon = viewModel.weatherData?.weather?.first?.icon {
-            setupGradient(forDayTime: weatherIcon.contains("d"))
-            setupTableUI()
+            let topColour = weatherIcon.contains("d") ? Colour.darkBlue.cgColor : Colour.black.cgColor
+            let bottomColour = weatherIcon.contains("d") ? Colour.lightBlue.cgColor : Colour.darkBlue.cgColor
+            gradientLayer.colors = [topColour, bottomColour]
         }
         weatherTableView.isHidden = false
         weatherTableView.reloadData()

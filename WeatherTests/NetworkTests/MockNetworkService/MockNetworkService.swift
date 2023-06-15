@@ -1,10 +1,3 @@
-//
-//  MockNetworkController.swift
-//  WeatherTests
-//
-//  Created by Gugulethu Mhlanga on 2023/06/14.
-//
-
 import Foundation
 import Combine
 import XCTest
@@ -27,7 +20,7 @@ final class MockNetworkService: WeatherNetworkServiceProtocol {
                 promise(.success(mockOpenWeatherData))
             }
             if self.weatherDataFetchFailed {
-                promise(.failure(APIError.noData))
+                promise(.failure(APIError.default))
             }
         }
         
@@ -44,7 +37,7 @@ final class MockNetworkService: WeatherNetworkServiceProtocol {
             }
             
             if self.forecastDataFetchFailed {
-                promise(.failure(APIError.noData))
+                promise(.failure(APIError.default))
             }
         }
         

@@ -1,10 +1,3 @@
-//
-//  AppConfigManagerTest.swift
-//  WeatherTests
-//
-//  Created by Gugulethu Mhlanga on 2023/06/14.
-//
-
 import XCTest
 @testable import Weather
 
