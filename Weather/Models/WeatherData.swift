@@ -11,7 +11,7 @@ struct WeatherData: Codable {
     
     var highLowDescription: String {
         guard let tempMax = tempMax, let tempMin = tempMin else { return "" }
-        return "\(Int(tempMax))º/\(Int(tempMin))º"
+        return "\(Int(tempMin))ºC/\(Int(tempMax))ºC"
     }
 
     enum CodingKeys: String, CodingKey {
