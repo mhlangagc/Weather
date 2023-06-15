@@ -1,10 +1,3 @@
-//
-//  WeatherNetworkControllerTests.swift
-//  WeatherTests
-//
-//  Created by Gugulethu Mhlanga on 2023/06/14.
-//
-
 import Foundation
 import XCTest
 import CoreLocation
