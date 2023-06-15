@@ -68,7 +68,6 @@ class WeatherViewController: OpenWeatherViewController {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.allowsSelection = false
-        tableView.refreshControl = refresher
         tableView.isHidden = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView

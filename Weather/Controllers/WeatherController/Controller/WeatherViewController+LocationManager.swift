@@ -8,7 +8,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
         viewModel.locationManager = CLLocationManager()
         viewModel.locationManager?.delegate = self
         viewModel.locationManager?.requestAlwaysAuthorization()
-        viewModel.locationManager?.desiredAccuracy = kCLLocationAccuracyKilometer
+        viewModel.locationManager?.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         viewModel.locationManager?.startUpdatingLocation()
     }
     

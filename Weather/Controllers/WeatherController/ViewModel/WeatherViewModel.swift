@@ -20,7 +20,6 @@ final class WeatherViewModel {
     }
     
     func getWeatherData(from location: Location) {
-        self.delegate.showLoader()
         networkService.fetchWeatherData(for: location)
             .receive(on: DispatchQueue.main)
             .sink { results in
@@ -40,7 +39,6 @@ final class WeatherViewModel {
     }
     
     func getForecastData(from location: Location) {
-        self.delegate.showLoader()
         networkService.fetchForecastData(for: location)
             .receive(on: DispatchQueue.main)
             .sink { results in

@@ -14,7 +14,7 @@ struct ForecastList: Codable {
     
     var temperature: String {
         guard let max = temp?.max, let min = temp?.min else { return "" }
-        return "\(Int(max))º/\(Int(min))º"
+        return "\(Int(min))ºC/\(Int(max))ºC"
     }
     
     var date: String {
