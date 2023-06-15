@@ -87,18 +87,7 @@ class WeatherViewController: OpenWeatherViewController {
         fetchWeatherData()
     }
     
-    func setupGradient(forDayTime: Bool = true) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(origin: .zero,
-                                     size: CGSize(width: screenWidth,
-                                                  height: screenHeight))
-        let topColour = forDayTime ? Colour.darkBlue.cgColor : Colour.black.cgColor
-        let bottomColour = forDayTime ? Colour.lightBlue.cgColor : Colour.darkBlue.cgColor
-        gradientLayer.colors = [topColour,
-                                bottomColour]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
-        gradientLayer.locations = [0.0, 1.0]
+    func setupGradient() {
         view.layer.addSublayer(gradientLayer)
     }
     
