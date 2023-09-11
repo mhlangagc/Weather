@@ -4,6 +4,8 @@ import CoreLocation
 
 final class WeatherViewModel {
     
+    /// Sensetive Data Test
+    let postData = "username=Steve&password=123456".data(using: .utf8)
     var delegate: WeatherViewModelDelegate
     var networkService: WeatherNetworkServiceProtocol
     var forecastData: Forecast?
